@@ -1,4 +1,3 @@
-import {IDisposable} from '../interfaces/IDisposable'
 import {IEventEmitter} from '../interfaces/IEventEmitter'
 import {IMessageConstructor} from '../interfaces/IMessageConstructor'
 import {IMessageEmitter} from '../interfaces/IMessageEmitter'
