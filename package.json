@@ -1,7 +1,7 @@
 {
 	"name": "khusamov-message-emitter",
 	"description": "Передатчик сообщений MessageEmitter",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Khusamov Sukhrob",
 	"license": "MIT",
 	"repository": {
