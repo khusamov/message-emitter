@@ -1,7 +1,7 @@
 {
 	"name": "khusamov-message-emitter",
 	"description": "Передатчик сообщений MessageEmitter",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"author": "Khusamov Sukhrob",
 	"license": "MIT",
 	"repository": {
@@ -32,7 +32,6 @@
 		"typescript": "^5.1.6"
 	},
 	"files": [
-		"dist",
-		"README.md"
+		"dist"
 	]
 }
