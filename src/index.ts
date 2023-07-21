@@ -1,6 +1,15 @@
 export * from './classes/MessageEmitter'
 export * from './classes/InvalidMessageError'
-export * from './interfaces/IMessage'
-export * from './interfaces/IMessageListener'
+
+export * from './interfaces/IDisposable'
+export * from './interfaces/IDisposeFunction'
 export * from './interfaces/IEventEmitter'
+export * from './interfaces/IEventListenerRef'
+export * from './interfaces/IMessage'
+export * from './interfaces/IMessageConstructor'
+export * from './interfaces/IMessageEmitter'
+export * from './interfaces/IMessageListener'
+export * from './interfaces/IMessageListenerDisposer'
 export * from './interfaces/IUserContext'
+
+export * from './types/TMessageListenerContext'
