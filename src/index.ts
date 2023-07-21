@@ -1,0 +1,6 @@
+export * from './classes/MessageEmitter'
+export * from './classes/InvalidMessageError'
+export * from './interfaces/IMessage'
+export * from './interfaces/IMessageListener'
+export * from './interfaces/IEventEmitter'
+export * from './interfaces/IUserContext'
