@@ -47,7 +47,8 @@ class UserMessage implements IMessage {
 
 // Подписка на сообщения класса UserMessage.
 const dispose = messageEmitter.on(UserMessage, ({param1, contextParam1, dispose}) => {
-	// Внутри слушателя получаем поля класса UserMessage, поля пользовательского контекста и метод dispose().
+	// Внутри слушателя получаем поля класса UserMessage, поля пользовательского 
+	// контекста и метод dispose().
 	// То есть param1 === 'message1'.
 	// То есть contextParam1 === 12345.
 	// Слушатель может себя отключить при помощи вызова dispose().
