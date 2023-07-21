@@ -6,5 +6,5 @@ import {IUserContext} from './IUserContext'
  * Обработчик сообщения.
  */
 export interface IMessageListener<M extends IMessage, C extends IUserContext> {
-	(message: M, context: TMessageListenerContext<C>): void
+	(message: M & TMessageListenerContext<C>): void
 }

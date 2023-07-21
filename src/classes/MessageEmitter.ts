@@ -70,7 +70,7 @@ export class MessageEmitter<C extends IUserContext> implements IMessageEmitter<C
 		const dispose = () => this.eventEmitter.off(MessageClass.name, eventListenerRef.listener)
 		const disposer: IMessageListenerDisposer = Object.assign(() => dispose(), {dispose})
 		const messageListenerContext: TMessageListenerContext<C> = Object.assign(disposer, this.context)
-		eventListenerRef.listener = (message: M) => messageListener(message, messageListenerContext)
+		eventListenerRef.listener = (message: M) => messageListener(Object.assign(message, messageListenerContext))
 		this.eventEmitter[method](MessageClass.name, eventListenerRef.listener)
 		return disposer
 	}

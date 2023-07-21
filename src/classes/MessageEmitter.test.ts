@@ -15,28 +15,26 @@ describe('MessageEmitter', () => {
 	test('emit', () => {
 		const listener1 = jest.fn()
 		const listener2 = jest.fn()
-		const listener3 = jest.fn()
 		const messageEmitter = new MessageEmitter(new EventEmitter)
 		class UserMessage implements IMessage {}
-		messageEmitter.on(UserMessage, (message, disposer) => {
+		messageEmitter.on(UserMessage, message => {
 			listener1(message)
-			listener2(typeof disposer === 'function')
-			listener3(typeof disposer.dispose === 'function')
+			listener2(typeof message.dispose === 'function')
 		})
 		const message = new UserMessage
 		messageEmitter.emit(message)
 		expect(listener1).toBeCalledWith(message)
 		expect(listener2).lastCalledWith(true)
-		expect(listener3).lastCalledWith(true)
 	})
 	test('emit with params', () => {
+		const listener = jest.fn()
 		const messageEmitter = new MessageEmitter(new EventEmitter)
 		class UserMessage implements IMessage {
 			public constructor(public readonly message: string) {}
 		}
-		const emitPromise = new Promise<UserMessage>(resolve => messageEmitter.on(UserMessage, resolve))
+		messageEmitter.on(UserMessage, ({message}) => listener(message))
 		messageEmitter.emit(new UserMessage('message1'))
-		expect(emitPromise).resolves.toEqual(new UserMessage('message1'))
+		expect(listener).toBeCalledWith('message1')
 	})
 	test('multi on', () => {
 		const listener = jest.fn()
@@ -78,7 +76,7 @@ describe('MessageEmitter', () => {
 		const context: IMyContext = {param1: 100}
 		const messageEmitter = new MessageEmitter<IMyContext>(new EventEmitter, context)
 		class UserMessage implements IMessage {}
-		messageEmitter.on(UserMessage, (_, {param1}) => listener(param1))
+		messageEmitter.on(UserMessage, ({param1}) => listener(param1))
 		messageEmitter.emit(new UserMessage)
 		expect(listener).toBeCalledWith(100)
 	})
