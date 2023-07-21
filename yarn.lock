@@ -3890,9 +3890,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"khusamov-message-broker@workspace:.":
+"khusamov-message-emitter@workspace:.":
   version: 0.0.0-use.local
-  resolution: "khusamov-message-broker@workspace:."
+  resolution: "khusamov-message-emitter@workspace:."
   dependencies:
     "@jest/globals": ^29.6.1
     "@parcel/packager-ts": 2.9.3
